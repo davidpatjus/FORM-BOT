@@ -1,0 +1,22 @@
+{
+  "name": "bot-votacion",
+  "version": "1.0.0",
+  "main": "index.js",
+"scripts": {
+  "start": "npm install && npx puppeteer install && node index.js"
+},
+"puppeteer": {
+  "browsers": ["chromium"]
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^23.3.0",
+    "random-name": "^0.1.2"
+  }
+}
