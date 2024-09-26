@@ -24,7 +24,8 @@ function generarCorreoAleatorio(nombreCompleto) {
 async function resolverCaptchaCon2Captcha(page) {
     try {
         const siteKey = await page.evaluate(() => {
-            const captchaElement = document.querySelector("#exampleModal > div > div > div.modal-body > div.h-captcha");
+            // Seleccionar nodo principal del captcha para obtener data-sitekey EJEMPLO
+            const captchaElement = document.querySelector("div.h-captcha");
             if (captchaElement) {
                 return captchaElement.getAttribute('data-sitekey');
             } else {
@@ -56,7 +57,7 @@ async function resolverCaptchaCon2Captcha(page) {
             }
         }
 
-        // Colocar el token en el campo correspondiente
+        // Colocar el token en el campo correspondiente EJEMPLO
         await page.evaluate(`document.querySelector('[name="h-captcha-response"]').innerText="${captchaToken}";`);
         console.log('Captcha resuelto y token aplicado');
     } catch (error) {
@@ -80,13 +81,14 @@ async function ejecutarSolicitud() {
             args: ['--no-sandbox', '--disable-setuid-sandbox']
           });
         const page = await browser.newPage();
-        await page.goto('https://premiaciones.utel.edu.mx/nominado/c3d5ac9a-d97e-4a35-89e9-adcc12d97b8a');
+        // Puppetter se dirige a la pagina EJEMPLO
+        await page.goto('https://paginaejemplo.com');
 
-        // Interacción inicial con la página
-        await page.waitForSelector('body > div.container.py-5.n-text > div > div.col-12.col-md-4 > div > button.btn.btn-primary.w-100');
-        await page.click('body > div.container.py-5.n-text > div > div.col-12.col-md-4 > div > button.btn.btn-primary.w-100');
+        // Interacción inicial con la página (SI ES NECESARIO) EJEMPLO 
+        await page.waitForSelector('');
+        await page.click('');
 
-        // Llenar el formulario
+        // Llenar el formulario con los datos correspondientes
         await new Promise(resolve => setTimeout(resolve, 1000));
         await page.waitForSelector('#email');
         await page.waitForSelector('#name');
